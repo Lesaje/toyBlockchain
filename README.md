@@ -6,7 +6,7 @@ The KeyPair structure was created to store a key pair, it has methods for genera
 
 The PaymentMessages structure is a container for transaction data, and is designed to serialize and decode this data from a slice of bytes.
 
-The Account and Depository structures are similar, but have radically different functionality. Account has a 256-bit identifier that is a public key. Additionally, it contains the entire key pair as well as the balance. This was done in order to sign the data with the KeyPair structure method and avoid transferring the private key. It has methods for creating a new account from an existing key pair, as well as creating a payment transaction.
+The Account and Depository structures are similar, but have radically different functionality. Account has a 256-bit identifier that is a public key. Additionally, it contains the entire key pair as well as the balance. This was done in order to sign the data with the KeyPair structure method and avoid transferring the private key. It has methods for creating a new account from an existing key pair, as well as creating a payment transaction. NewAccount method has receiver type Blockchain because Account identifier must be included in CoinDatabase.
 
 The Depository structure was created for the distribution of test coins, and in addition to the fields of the Account structure, it also contains a dictionary of accounts holding a deposit. Receiving a deposit from an account has not yet been worked out, this structure is only used to create the initial distribution of coins across accounts using the SendInterests method.
 
